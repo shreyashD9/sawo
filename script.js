@@ -4,21 +4,18 @@ const modal = document.getElementById('admin-login-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
 
 openModalBtn.addEventListener('click', () => {
-  modal.style.display = 'block';  // Show the modal
+  modal.style.display = 'block';
 });
 
-// Close modal when clicking "X"
 closeModalBtn.addEventListener('click', () => {
-  modal.style.display = 'none';  // Hide the modal
+  modal.style.display = 'none';
 });
 
-// Close modal if clicked outside the modal content
 window.addEventListener('click', (event) => {
   if (event.target === modal) {
-    modal.style.display = 'none';  // Hide the modal when clicked outside
+    modal.style.display = 'none';
   }
 });
-
 
 // Toggle mobile menu on hamburger icon click
 document.getElementById('hamburger').addEventListener('click', function () {
@@ -33,11 +30,11 @@ document.getElementById('hamburger').addEventListener('click', function () {
 });
 
 // Admin Login Modal Logic
-const adminLoginModal = document.getElementById('admin-login-modal');  // Admin login modal
-const adminModal = document.getElementById('adminModal');  // Admin modal that shows after login
-const closeAdminLoginModal = document.getElementById('close-modal-btn');  // Close button for Admin login modal
-const closeAdminModal = document.getElementById('closeAdminModal');  // Close button for Admin modal
-const adminLoginForm = document.getElementById('admin-login-form');  // Admin login form
+const adminLoginModal = document.getElementById('admin-login-modal');
+const adminModal = document.getElementById('adminModal');
+const closeAdminLoginModal = document.getElementById('close-modal-btn');
+const closeAdminModal = document.getElementById('closeAdminModal');
+const adminLoginForm = document.getElementById('admin-login-form');  
 
 // Open the Admin Login Modal when the login button is clicked
 openModalBtn.addEventListener('click', () => {
@@ -64,10 +61,7 @@ adminLoginForm.addEventListener('submit', (event) => {
 
   // Validate credentials
   if (username === 'teamsawo' && password === 'SawoTeam@009') {
-    // Close the admin login modal
     adminLoginModal.style.display = 'none';
-
-    // Show the Admin Modal with important links
     adminModal.style.display = 'block';
   } else {
     alert('Invalid username or password');
