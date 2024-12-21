@@ -60,10 +60,139 @@ adminLoginForm.addEventListener('submit', (event) => {
   const password = document.getElementById('password').value;
 
   // Validate credentials
-  if (username === 'teamsawo' && password === 'SawoTeam@009') {
+  if (username === 'teamsawo' && password === '123') {
     adminLoginModal.style.display = 'none';
     adminModal.style.display = 'block';
   } else {
     alert('Invalid username or password');
+  }
+});
+
+// Handle Update Date Form Submission
+const updateDateForm = document.getElementById('update-date-form');
+const newDateInput = document.getElementById('new-date');
+const nextDateElement = document.querySelector('.abc-date'); // Updated to match new class for date display
+const abcNoteElement = document.querySelector('.abc-note'); // The element for the "Mark your calendars!" note
+
+updateDateForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Get the new date from the input
+  const newDate = newDateInput.value;
+
+  // Validate and update the next ABC Drive date
+  if (newDate) {
+    // Update the date display
+    nextDateElement.textContent = newDate;
+
+    // Update the note dynamically to encourage engagement
+    abcNoteElement.textContent = `Get ready for the next drive on ${newDate}!`;
+
+    alert('Date updated successfully!');
+
+    // Close the Admin Modal
+    document.getElementById('adminModal').style.display = 'none';
+
+    // Optionally clear the input field
+    newDateInput.value = '';
+  } else {
+    alert('Please select a valid date.');
+  }
+});
+
+// Slots management
+const slotsCountElement = document.getElementById('slots-count'); // Display slot count
+const slotsNumberInput = document.getElementById('slots-number'); // Admin input field
+const updateSlotsForm = document.getElementById('update-slots-form'); // Admin slots form
+
+// Initialize slots (default or from a backend service)
+let remainingSlots = 20;
+
+// Populate slots input with the current value
+slotsNumberInput.value = remainingSlots;
+
+// Update slots dynamically
+updateSlotsForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent form submission
+  
+  const updatedSlots = parseInt(slotsNumberInput.value, 10);
+  if (!isNaN(updatedSlots) && updatedSlots >= 0) {
+    remainingSlots = updatedSlots;
+    slotsCountElement.textContent = remainingSlots; // Update display
+    alert(`Slots updated successfully to ${remainingSlots}`);
+  } else {
+    alert('Please enter a valid number of slots!');
+  }
+});
+
+
+
+
+let selectedAchievementId = ""; // To store the id of the achievement being updated
+
+// Function to open the modal and set the selected achievement
+function openModal(achievementId) {
+  selectedAchievementId = achievementId;
+  const currentValue = document.getElementById(achievementId).textContent;
+  document.getElementById("new-value").value = currentValue; // Set the current value in the input
+  document.getElementById("update-modal").style.display = "block"; // Show the modal
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById("update-modal").style.display = "none";
+}
+
+// Function to save the updated achievement value
+function updateAchievement() {
+  const newValue = document.getElementById("new-value").value;
+  if (newValue && !isNaN(newValue)) {
+    document.getElementById(selectedAchievementId).textContent = newValue; // Update the value in the card
+    closeModal(); // Close the modal
+    alert("Achievement updated successfully!");
+  } else {
+    alert("Please enter a valid number.");
+  }
+}
+
+// donation modal
+/// Elements for Donation Modal
+const donateBtn = document.querySelector('.nav-buttons .light');
+const donationModal = document.getElementById('donation-modal');
+const closeDonationModal = document.getElementById('close-donation-modal');
+
+// Elements for QR Modal
+const qrModal = document.getElementById('qr-modal');
+const upiQrButton = document.getElementById('upi-qr-button');
+const closeQrModal = document.getElementById('close-qr-modal');
+
+// Open Donation Modal
+donateBtn.addEventListener('click', () => {
+  donationModal.style.display = 'block';
+});
+
+// Close Donation Modal
+closeDonationModal.addEventListener('click', () => {
+  donationModal.style.display = 'none';
+});
+
+// Open QR Modal when UPI Button is clicked
+upiQrButton.addEventListener('click', () => {
+  donationModal.style.display = 'none'; // Close the Donation Modal
+  qrModal.style.display = 'block';
+});
+
+// Close QR Modal
+closeQrModal.addEventListener('click', () => {
+  qrModal.style.display = 'none';
+});
+
+// Close Modal on outside click
+window.addEventListener('click', (event) => {
+  if (event.target === donationModal) {
+    donationModal.style.display = 'none';
+  }
+  if (event.target === qrModal) {
+    qrModal.style.display = 'none';
   }
 });

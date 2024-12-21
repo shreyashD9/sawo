@@ -10,6 +10,11 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Add FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Navigation -->
@@ -20,9 +25,9 @@
         </div>
         <div class="nav-items">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">What we do</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#what-we-do">What we do</a></li>
+            <li><a href="#about-us">About Us</a></li>
           </ul>
         </div>
         <div class="nav-buttons">
@@ -58,6 +63,138 @@
       </div>
     </div>
 
+    <!-- Donation Modal -->
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="modal">
+      <div class="modal-content">
+        <!-- Close Button -->
+        <span class="close-btn" id="close-donation-modal">&times;</span>
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <img
+            src="./assets/Rectangle_logo.svg"
+            alt="SAWO Logo"
+            class="modal-logo"
+          />
+          <h2>Donation</h2>
+          <p>Join us to help these beautiful creatures of the world.</p>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <h3>Select Payment Method:</h3>
+          <ul class="payment-options">
+            <li>
+              <button class="payment-link-upi qr-trigger" id="upi-qr-button">
+                UPI Phone Pay
+              </button>
+            </li>
+            <li>
+              <a
+                href="https://80gcertified.com/donation-link"
+                target="_blank"
+                class="payment-link"
+                >UPI with 80G Certificate</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal">
+      <div class="modal-content">
+        <!-- Close Button -->
+        <span class="close-btn" id="close-qr-modal">&times;</span>
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <img
+            src="./assets/Rectangle_logo.svg"
+            alt="SAWO Logo"
+            class="modal-logo"
+          />
+          <h2>Donation</h2>
+          <p>Scan for the payment</p>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <img
+            src="./assets/upi-qr-code.svg"
+            alt="UPI QR Code"
+            class="qr-image"
+          />
+          <button class="thanks-btn">Thanks for the Donation</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal">
+      <div class="modal-content">
+        <!-- Close Button -->
+        <span class="close-btn" id="close-qr-modal">&times;</span>
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <img
+            src="./assets/Rectangle_logo.svg"
+            alt="SAWO Logo"
+            class="modal-logo"
+          />
+          <h2>Donation</h2>
+          <p>Scan for the payment</p>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <img
+            src="./assets/upi-qr-code.png"
+            alt="UPI QR Code"
+            class="qr-image"
+          />
+          <button class="thanks-btn">Thanks for the Donation</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <!-- <div id="adminModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeAdminModal">&times;</span>
+        <div class="modal-header">
+          <img
+            src="./assets/Rectangle_logo.svg"
+            class="modal-logo"
+            alt="SAWO Logo"
+          />
+          <h2>Hello, Admin</h2>
+        </div>
+        <div class="admin-modal-content">
+          <h3>Important Form Links:</h3>
+          <ul>
+            <li>
+              <a href="https://forms.gle/iTqjdYL3UEt5KqeAA"
+                >Pet Adoption Form</a
+              >
+            </li>
+            <li>
+              <a href="https://forms.gle/z77uAZpnCxUhKqfBA"
+                >Surgery Consent Form</a
+              >
+            </li>
+            <li>
+              <a href="https://forms.gle/63qBMguYCJqVGQAv9"
+                >Rescue Case Admission Form</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
     <!-- Admin Modal -->
     <div id="adminModal" class="modal">
       <div class="modal-content">
@@ -73,10 +210,41 @@
         <div class="admin-modal-content">
           <h3>Important Form Links:</h3>
           <ul>
-            <li><a href="https://forms.gle/iTqjdYL3UEt5KqeAA">Pet Adoption Form</a></li>
-            <li><a href="https://forms.gle/z77uAZpnCxUhKqfBA">Surgery Consent Form</a></li>
-            <li><a href="https://forms.gle/63qBMguYCJqVGQAv9">Rescue Case Admission Form</a></li>
+            <li>
+              <a href="https://forms.gle/iTqjdYL3UEt5KqeAA"
+                >Pet Adoption Form</a
+              >
+            </li>
+            <li>
+              <a href="https://forms.gle/z77uAZpnCxUhKqfBA"
+                >Surgery Consent Form</a
+              >
+            </li>
+            <li>
+              <a href="https://forms.gle/63qBMguYCJqVGQAv9"
+                >Rescue Case Admission Form</a
+              >
+            </li>
           </ul>
+          <!-- New Section to Update the Date -->
+          <h3>Update Next ABC Drive Date</h3>
+          <form id="update-date-form">
+            <input type="date" id="new-date" name="next-abc-date" required />
+            <button type="submit" class="update-btn">Update Date</button>
+          </form>
+          <!-- New Section for Slots -->
+          <h3>Update Slots Information</h3>
+          <form id="update-slots-form">
+            <label for="slots-number">Number of Slots Remaining:</label>
+            <input
+              type="number"
+              id="slots-number"
+              name="slots-remaining"
+              min="0"
+              required
+            />
+            <button type="submit" class="update-btn">Update Slots</button>
+          </form>
         </div>
       </div>
     </div>
@@ -119,38 +287,106 @@
         </div>
       </div>
     </section>
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="what-we-do-container">
+      <h2>What We Do</h2>
+      <div class="card-container">
+        <div class="card">
+          <i class="fa fa-heartbeat"></i>
+          <h3>Rescue</h3>
+        </div>
+        <div class="card">
+          <i class="fa fa-hand-holding-heart"></i>
+          <h3>Rehabilitate</h3>
+        </div>
+        <div class="card">
+          <i class="fa fa-home"></i>
+          <h3>Rehome</h3>
+        </div>
+        <div class="card">
+          <i class="fa fa-house-user"></i>
+          <h3>Provide Shelter</h3>
+        </div>
+        <div class="card">
+          <i class="fa fa-medkit"></i>
+          <h3>Medical Care</h3>
+        </div>
+        <div class="card">
+          <i class="fa fa-exclamation-triangle"></i>
+          <h3>Report Animal Cruelty</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our achivements -->
+
+    <section class="achievements-container">
+      <h2>Our Achievements</h2>
+      <div class="achievements-card-container">
+        <div class="card">
+          <i class="fas fa-paw"></i>
+          <h3>Strays Neutered</h3>
+          <p id="strays-neutered-number">500</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-syringe"></i>
+          <h3>Total Strays Sterilized</h3>
+          <p id="strays-sterilized-number">800</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-heart"></i>
+          <h3>Total Adoptions</h3>
+          <p id="total-adoptions-number">300</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-home"></i>
+          <h3>Stray Population Controlled</h3>
+          <p id="stray-population-controlled-number">1200</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- abc-section -->
+    <section class="abc-section">
+      <h2 class="abc-heading">Animal Birth Control Surgery</h2>
+      <div class="abc-content">
+        <h3 class="abc-subheading">The next ABC drive will be on</h3>
+        <p class="abc-note"></p>
+        <p class="abc-date" id="next-date">1/1/24</p>
+        <p class="abc-note">Mark your calendars!</p>
+        <p class="slots-remaining">
+          Slots Remaining: <span id="slots-count">11</span>
+        </p>
+        <a class="book-slot-btn" id="book-slot-btn" href="#">Book Your Slot</a>
+      </div>
+    </section>
 
     <!-- Card section  -->
 
     <section>
-      <div class="container">
+      <div id="what-we-do" class="container">
         <h1 class="heading">How You Can Help</h1>
         <div class="box-container">
           <div class="box">
             <img src="./assets/help_1.svg" alt="" />
             <a href="#" class="btn">Report a Rescue Case</a>
           </div>
-
           <div class="box">
             <img src="./assets/help_2.svg" alt="" />
             <a href="#" class="btn">Report Animal Cruelty Incident</a>
           </div>
-
           <div class="box">
             <img src="./assets/help_3.svg" alt="" />
             <a href="#" class="btn">Adoptions</a>
           </div>
-
           <div class="box">
             <img src="./assets/help_4.svg" alt="" />
             <a href="#" class="btn">Book an Appointment</a>
           </div>
-
           <div class="box">
             <img src="./assets/help_5.svg" alt="" />
             <a href="#" class="btn">Request for On-Site Help</a>
           </div>
-
           <div class="box">
             <img src="./assets/help_6.svg" alt="" />
             <a href="#" class="btn">SAWO Wishlist</a>
@@ -159,18 +395,162 @@
       </div>
     </section>
 
+    <!-- Whislist-section -->
+
+    <section class="wishlist-container">
+      <h2>Support Our Cause</h2>
+      <p>
+        Your support can make a huge difference. Check out our Amazon Wishlist
+        and help us by donating items that we desperately need.
+      </p>
+      <div class="wishlist-card">
+        <i class="fas fa-gift"></i>
+        <h3>Amazon Wishlist</h3>
+        <p>
+          Browse our wishlist and purchase items that will directly benefit the
+          animals in need.
+        </p>
+        <a
+          href="https://www.amazon.in/hz/wishlist/ls/19U85B4OAY8KU?ref_=wl_share"
+          class="btn"
+          target="_blank"
+          >View Wishlist</a
+        >
+      </div>
+    </section>
+
     <!-- Google Map Section -->
+
     <section class="map-container">
-      <h2>Our location</h2>
+      <h2>Find Us Here</h2>
+      <p>Visit our location or share it with others!</p>
       <div class="map-wrapper">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.0177000285155!2d73.671960!3d18.725003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b18bac0c3967%3A0xd660d34cf1ecc7ce!2sSAWO%20-%20Stray%20Animal%20Welfare%20Organization%20Rescue%20and%20Shelter%20Home!5e0!3m2!1sen!2sin!4v1667447003399!5m2!1sen!2sin"
-          width="100%"
-          height="450"
-          style="border: 0"
           allowfullscreen=""
           loading="lazy"
+          title="SAWO Location"
         ></iframe>
+      </div>
+      <div class="map-actions">
+        <a
+          href="https://www.google.com/maps?q=SAWO+-+Stray+Animal+Welfare+Organization+Rescue+and+Shelter+Home"
+          target="_blank"
+          class="btn"
+        >
+          View on Google Maps
+        </a>
+        <a
+          href="https://www.google.com/maps?q=SAWO+-+Stray+Animal+Welfare+Organization+Rescue+and+Shelter+Home"
+          target="_blank"
+          class="btn share-btn"
+        >
+          Share Location
+        </a>
+      </div>
+    </section>
+
+    <!-- Ourteam -->
+    <section>
+      <div id="our_team" class="our_team">
+        <div class="our-team">
+          <h2 class="lower-border">Meet our Team</h2>
+          <div class="team-grid">
+            <div class="team-member founder">
+              <img src="./assets/Founder.svg" alt="Founder" />
+              <h3>Sarang Rajwade</h3>
+              <p>Founder & President</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Treasurer.svg" alt="Treasurer" />
+              <h3>Shreyas Modak</h3>
+              <p>Treasurer</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Secretary.svg" alt="Secretary" />
+              <h3>Devendra Vetal</h3>
+              <p>Secretary</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Trustee.svg" alt="Trustee" />
+              <h3>Akshay Mankar</h3>
+              <p>Trustee</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Admin.svg" alt="Admin" />
+              <h3>Nilesh Shirke</h3>
+              <p>Admin</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Round_logo.svg" alt="Head Surgeon" />
+              <h3>Dr. Vishal Rathod</h3>
+              <p>Head Surgeon</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Caretaker_1.svg" alt="Caretaker" />
+              <h3>Vinod Kumar</h3>
+              <p>Caretaker</p>
+            </div>
+            <div class="team-member">
+              <img src="./assets/Caretaker_2.svg" alt="Caretaker" />
+              <h3>Vivek</h3>
+              <p>Caretaker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-us-container">
+      <h2>Contact Us</h2>
+      <p class="form-intro">
+        Alternatively, you can use the form below to send us a message directly.
+        We'll get back to you as soon as possible.
+      </p>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+
+      <h2>Our contact Numbers</h2>
+      <div class="contact-numbers">
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <p><a href="tel:+919158415160">9158415160</a></p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <p><a href="tel:+919158415161">9158415161</a></p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <p><a href="tel:+919158415162">9158415162</a></p>
+        </div>
       </div>
     </section>
 
