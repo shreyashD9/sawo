@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAWO</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
       rel="stylesheet"
@@ -28,6 +29,7 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="#what-we-do">What we do</a></li>
             <li><a href="#about-us">About Us</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
           </ul>
         </div>
         <div class="nav-buttons">
@@ -64,7 +66,6 @@
     </div>
 
     <!-- Donation Modal -->
-    <!-- Donation Modal -->
     <div id="donation-modal" class="modal">
       <div class="modal-content">
         <!-- Close Button -->
@@ -91,19 +92,16 @@
               </button>
             </li>
             <li>
-              <a
-                href="https://80gcertified.com/donation-link"
-                target="_blank"
-                class="payment-link"
-                >UPI with 80G Certificate</a
-              >
+              <button class="payment-link-upi" id="upi-80g-button">
+                UPI with 80G Certificate
+              </button>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- QR Modal -->
+    <!-- QR Modal for UPI Phone Pay -->
     <div id="qr-modal" class="modal">
       <div class="modal-content">
         <!-- Close Button -->
@@ -127,16 +125,16 @@
             alt="UPI QR Code"
             class="qr-image"
           />
-          <button class="thanks-btn">Thanks for the Donation</button>
+          <a href="./index.html" class="thanks-btn">Thanks for the Donation</a>
         </div>
       </div>
     </div>
 
-    <!-- QR Modal -->
-    <div id="qr-modal" class="modal">
+    <!-- QR Modal for 80G UPI -->
+    <div id="qr-80g-modal" class="modal">
       <div class="modal-content">
         <!-- Close Button -->
-        <span class="close-btn" id="close-qr-modal">&times;</span>
+        <span class="close-btn" id="close-80g-qr-modal">&times;</span>
 
         <!-- Modal Header -->
         <div class="modal-header">
@@ -146,55 +144,24 @@
             class="modal-logo"
           />
           <h2>Donation</h2>
-          <p>Scan for the payment</p>
+          <p>Scan for the payment and fill out the form for 80G Certificate</p>
         </div>
 
         <!-- Modal Body -->
         <div class="modal-body">
           <img
-            src="./assets/upi-qr-code.png"
-            alt="UPI QR Code"
+            src="./assets/upi-qr-code.svg"
+            alt="80G UPI QR Code"
             class="qr-image"
           />
-          <button class="thanks-btn">Thanks for the Donation</button>
+          <!-- Button to redirect to 80G form -->
+          <a href="https://forms.gle/kJCSk7Gd3KrRJCyTA" class="thanks-btn"
+            >Fill out this form for the 80G certificate</a
+          >
         </div>
       </div>
     </div>
 
-    <!-- Admin Modal -->
-    <!-- <div id="adminModal" class="modal">
-      <div class="modal-content">
-        <span class="close-btn" id="closeAdminModal">&times;</span>
-        <div class="modal-header">
-          <img
-            src="./assets/Rectangle_logo.svg"
-            class="modal-logo"
-            alt="SAWO Logo"
-          />
-          <h2>Hello, Admin</h2>
-        </div>
-        <div class="admin-modal-content">
-          <h3>Important Form Links:</h3>
-          <ul>
-            <li>
-              <a href="https://forms.gle/iTqjdYL3UEt5KqeAA"
-                >Pet Adoption Form</a
-              >
-            </li>
-            <li>
-              <a href="https://forms.gle/z77uAZpnCxUhKqfBA"
-                >Surgery Consent Form</a
-              >
-            </li>
-            <li>
-              <a href="https://forms.gle/63qBMguYCJqVGQAv9"
-                >Rescue Case Admission Form</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
     <!-- Admin Modal -->
     <div id="adminModal" class="modal">
       <div class="modal-content">
@@ -357,7 +324,12 @@
         <p class="slots-remaining">
           Slots Remaining: <span id="slots-count">11</span>
         </p>
-        <a class="book-slot-btn" id="book-slot-btn" href="#">Book Your Slot</a>
+        <a
+          class="book-slot-btn"
+          id="book-slot-btn"
+          href="https://forms.gle/tx3zCxCTW9rQct276"
+          >Book Your Slot</a
+        >
       </div>
     </section>
 
@@ -482,7 +454,7 @@
               <p>Admin</p>
             </div>
             <div class="team-member">
-              <img src="./assets/Round_logo.svg" alt="Head Surgeon" />
+              <img src="./assets/Doctor.svg" alt="Head Surgeon" />
               <h3>Dr. Vishal Rathod</h3>
               <p>Head Surgeon</p>
             </div>
@@ -501,13 +473,22 @@
       </div>
     </section>
 
-    <section class="contact-us-container">
+    <section id="contact-us" class="contact-us-container">
       <h2>Contact Us</h2>
       <p class="form-intro">
         Alternatively, you can use the form below to send us a message directly.
         We'll get back to you as soon as possible.
       </p>
-      <form id="contact-form">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="contact-form"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="5dc079bf-dd1a-4977-87f6-748adf32d064"
+        />
         <label for="name">Name:</label>
         <input
           type="text"
@@ -539,16 +520,19 @@
 
       <h2>Our contact Numbers</h2>
       <div class="contact-numbers">
-        <div class="contact-item">
+        <div class="contact-item-primary">
           <i class="fas fa-phone-alt"></i>
+          <p><a>Primary contact</a></p>
           <p><a href="tel:+919158415160">9158415160</a></p>
         </div>
-        <div class="contact-item">
+        <div class="contact-item-secondary">
           <i class="fas fa-phone-alt"></i>
+          <p><a>Secondary contact</a></p>
           <p><a href="tel:+919158415161">9158415161</a></p>
         </div>
-        <div class="contact-item">
+        <div class="contact-item-tertiary">
           <i class="fas fa-phone-alt"></i>
+          <p><a>Tertiary contact</a></p>
           <p><a href="tel:+919158415162">9158415162</a></p>
         </div>
       </div>
@@ -589,6 +573,110 @@
         <div class="copyright"><p>© All Copyright reserved SAWO 2024</p></div>
       </div>
     </footer>
+    <script type="module">
+      // Firestore Database Reference
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+        setDoc,
+        updateDoc,
+      } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+      // Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyD7jdDENT6lgorjMUU4guLFUyHKTu9k5o4",
+        authDomain: "sawodb-e27c5.firebaseapp.com",
+        projectId: "sawodb-e27c5",
+        storageBucket: "sawodb-e27c5.firebasestorage.app",
+        messagingSenderId: "839432894104",
+        appId: "1:839432894104:web:08966c7b9b012b745002ed",
+        measurementId: "G-4BD6LK44NK",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Firestore Document Reference
+      const abcDocRef = doc(db, "abc", "drive");
+
+      // Fetch Initial Data
+      async function fetchABCData() {
+        try {
+          const docSnap = await getDoc(abcDocRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            if (data.date) {
+              document.querySelector(".abc-date").textContent = data.date;
+              document.querySelector(
+                ".abc-note"
+              ).textContent = `Get ready for the next drive on`;
+            }
+            if (data.slots !== undefined) {
+              document.getElementById("slots-count").textContent = data.slots;
+              document.getElementById("slots-number").value = data.slots;
+            }
+          } else {
+            console.log("No data found!");
+          }
+        } catch (error) {
+          console.error("Error fetching Firestore data:", error);
+        }
+      }
+
+      // Update ABC Drive Date
+      document
+        .getElementById("update-date-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const newDate = document.getElementById("new-date").value;
+
+          if (newDate) {
+            try {
+              await updateDoc(abcDocRef, { date: newDate });
+              document.querySelector(".abc-date").textContent = newDate;
+              document.querySelector(
+                ".abc-note"
+              ).textContent = `Get ready for the next drive on`;
+              alert("Date updated successfully!");
+            } catch (error) {
+              console.error("Error updating date:", error);
+              alert("Failed to update the date. Please try again.");
+            }
+          } else {
+            alert("Please select a valid date.");
+          }
+        });
+
+      // Update Slots
+      document
+        .getElementById("update-slots-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const updatedSlots = parseInt(
+            document.getElementById("slots-number").value,
+            10
+          );
+
+          if (!isNaN(updatedSlots) && updatedSlots >= 0) {
+            try {
+              await updateDoc(abcDocRef, { slots: updatedSlots });
+              document.getElementById("slots-count").textContent = updatedSlots;
+              alert(`Slots updated successfully to ${updatedSlots}`);
+            } catch (error) {
+              console.error("Error updating slots:", error);
+              alert("Failed to update slots. Please try again.");
+            }
+          } else {
+            alert("Enter a valid number of slots!");
+          }
+        });
+
+      // Initialize Data on Page Load
+      fetchABCData();
+    </script>
+
     <script src="./script.js"></script>
   </body>
 </html>

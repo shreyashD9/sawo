@@ -38,7 +38,85 @@ body {
 nav {
   background-color: var(--color-light);
   color: var(--color-primary);
-  margin: var(--spacing-medium) var(--spacing-large) 0 var(--spacing-small);
+  padding: var(--spacing-medium) var(--spacing-large) 0 var(--spacing-small);
+  border-bottom: 1px solid var(--color-muted);
+}
+
+.nav-parts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-logo img {
+  height: 50px;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-items ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-items li {
+  margin: 0 var(--spacing-small);
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.nav-items a:hover {
+  color: var(--color-dark);
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-buttons .dark,
+.nav-buttons .light {
+  padding: var(--spacing-small) 32px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.nav-buttons .dark {
+  color: var(--color-primary);
+  background: var(--color-light);
+}
+
+.nav-buttons .light {
+  color: var(--color-light);
+  background: var(--color-primary);
+  margin-left: var(--spacing-small);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+nav {
+  background-color: var(--color-light);
+  color: var(--color-primary);
   border-bottom: 1px solid var(--color-muted);
 }
 
@@ -147,6 +225,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
   }
   .nav-buttons .light {
     margin: 15px;
@@ -722,28 +801,84 @@ nav {
 .contact-numbers {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   margin-bottom: 30px;
 }
-
-.contact-item {
-  text-align: center;
-  font-size: 1.1rem;
+@media (max-width: 768px) {
+  .contact-numbers {
+    flex-direction: column;
+  }
 }
 
-.contact-item i {
+.contact-item-primary {
+  background-color: var(--color-primary);
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 20%;
+  border: 1px solid var(--color-dark);
+  padding: 1rem;
+}
+
+.contact-item-primary i {
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: var(--color-light);
   margin-bottom: 10px;
 }
 
-.contact-item a {
+.contact-item-primary a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
 }
 
-.contact-item a:hover {
-  color: var(--color-primary);
+.contact-item-primary a:hover {
+  color: var(--color-accent);
+}
+.contact-item-secondary {
+  background-color: var(--color-accent);
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 20%;
+  border: 1px solid var(--color-dark);
+  padding: 16px 9px;
+}
+
+.contact-item-secondary i {
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+}
+
+.contact-item-secondary a {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.contact-item-secondary a:hover {
+  color: var(--color-secondary);
+}
+.contact-item-tertiary {
+  background-color: var(--color-light);
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 20%;
+  border: 1px solid var(--color-dark);
+  padding: 1rem;
+}
+
+.contact-item-tertiary i {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+}
+
+.contact-item-tertiary a {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.contact-item-tertiary a:hover {
+  color: var(--color-secondary);
 }
 
 .form-intro {
